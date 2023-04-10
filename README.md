@@ -4,7 +4,7 @@
 ### Overview
 
 The <strong>cljc-metamorphic-content</strong> is a simple Clojure/ClojureScript
-content renderer that you can pass different types of content such as Reagent
+contents renderer that you can pass different types of content such as Reagent
 components, React forms, Hiccup structures, numbers, strings or multilingual terms.
 
 ### deps.edn
@@ -42,7 +42,10 @@ If the content has no additional properties the shorthand form could be used as 
 
 ```
 (value {:content "Apple"})
-(value           "Apple")
+; => "Apple"
+
+(value "Apple")
+; => "Apple"
 ```
 
 If the content is a string you can pass the `:prefix` and `:suffix` properties which
@@ -87,7 +90,7 @@ the [`cljc-dictionary`](https://github.com/bithandshake/cljc-dictionary) library
 
 ```
 (ns my-namespace
-    (:require [dictionary.api          :as dictionary]
+    (:require [dictionary.api :as dictionary]
               [metamorphic-content.api :refer [value]]))
 
 (dictionary/add-term! :apple {:en "Apple" :hu "Alma"})              
@@ -102,7 +105,7 @@ properties.
 
 ```
 (ns my-namespace
-    (:require [dictionary.api          :as dictionary]
+    (:require [dictionary.api :as dictionary]
               [metamorphic-content.api :refer [value]]))
 
 (dictionary/add-term! :hi-my-name-is-n {:en "Hi, my name is %!" :hu "Szia, az én nevem %!"})              
@@ -118,13 +121,13 @@ The [`metamorphic-content.api/component`](documentation/cljc/metamorphic-content
 function is a Reagent component that takes a map (or its shorthand form) that describes its content.
 
 Like the [`metamorphic-content.api/value`](documentation/cljc/metamorphic-content/API.md#value)
-function it can displays numbers, strings and multilingual terms as its content
+function it can display numbers, strings and multilingual terms as its content
 but as a Reagent component it can handle Hiccups, other Reagent components and React forms.
 
 It can take the content in shorthand form as well as the `value` function below.
 
-If the content is a Hiccup the component shows it as it is and no additional property
-can be used.
+If the content is a Hiccup structure the component shows it as it is and no additional
+property can be used.
 
 ```
 [component {:content [:div "Apple"]}]
@@ -133,17 +136,23 @@ can be used.
 If the content is a Reagent component you can use the `:params` property.
 
 ```
-(defn my-component [] [:div "Apple"])
+(defn my-component []
+  [:div "Apple"])
+
 [component {:content [my-component]}]
 ```
 
 ```
-(defn my-component [fruit] [:div fruit])
+(defn my-component [fruit]
+  [:div fruit])
+
 [component {:content [my-component "Apple"]}]
 ```
 
 ```
-(defn my-component [fruit] [:div fruit])
+(defn my-component [fruit]
+  [:div fruit])
+
 [component {:content [my-component]
             :params ["Apple"]}]
 ```
@@ -151,12 +160,16 @@ If the content is a Reagent component you can use the `:params` property.
 If the content is a symbol of a Reagent component you can use the `:params` property.
 
 ```
-(defn my-component [] [:div "Apple"])
+(defn my-component []
+  [:div "Apple"])
+
 [component {:content #'my-component}]
 ```
 
 ```
-(defn my-component [fruit] [:div fruit])
+(defn my-component [fruit]
+  [:div fruit])
+  
 [component {:content #'my-component
             :params ["Apple"}]
 ```
