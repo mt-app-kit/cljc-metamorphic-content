@@ -2,9 +2,8 @@
 (ns metamorphic-content.component
     (:require [dictionary.api            :as dictionary]
               [hiccup.api                :refer [hiccup?]]
-              [metamorphic-content.utils :as utils]
+              [metamorphic-content.utils :as utils :refer [component?]]
               [noop.api                  :refer [return]]
-              [reagent.api               :refer [component?]]
               [vector.api                :as vector]))
 
 ;; ----------------------------------------------------------------------------
