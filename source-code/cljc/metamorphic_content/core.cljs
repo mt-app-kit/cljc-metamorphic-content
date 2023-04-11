@@ -1,5 +1,5 @@
 
-(ns metamorphic-content.component
+(ns metamorphic-content.core
     (:require [dictionary.api            :as dictionary]
               [hiccup.api                :refer [hiccup?]]
               [metamorphic-content.utils :as utils :refer [component?]]
@@ -9,7 +9,7 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn view
+(defn compose
   ; @param (metamorphic-content) content-props
   ; {:content (component, keyword, hiccup, number, string or symbol)(opt)
   ;  :params (vector)(opt)
@@ -21,44 +21,44 @@
   ;   W/ {:content (keyword, number or string)}}
   ;
   ; @usage
-  ; [component {...}]
+  ; (compose {...})
   ;
   ; @usage
-  ; [component :my-component {...}]
+  ; [compose {...}]
   ;
   ; @example
-  ; [component {:content :first-name}]
+  ; (compose {:content :first-name})
   ; =>
   ; "First name"
   ;
   ; @example
-  ; [component {:content "Hakuna Matata"}]
+  ; (compose {:content "Hakuna Matata"})
   ; =>
   ; "Hakuna Matata"
   ;
   ; @usage
   ; (defn my-component [])
-  ; [component :my-content {:content #'my-component}]
+  ; [compose :my-content {:content #'my-component}]
   ;
   ; @usage
   ; (defn my-component [my-color])
-  ; [component {:content [my-component :green]}]
+  ; [compose {:content [my-component :green]}]
   ;
   ; @usage
   ; (defn my-component   [my-color])
   ; (defn your-component [your-color])
-  ; [component {:content [:<> [my-component   :green]
-  ;                           [your-component :blue]]}]
+  ; [compose {:content [:<> [my-component   :green]
+  ;                         [your-component :blue]]}]
   ;
   ; @usage
   ; (defn my-component [color])
-  ; [component :my-content {:content #'my-component
-  ;                         :params  [:green]}]
+  ; [compose :my-content {:content #'my-component
+  ;                       :params  [:green]}]
   ;
   ; @usage
   ; (defn my-component [color])
-  ; [component {:content [my-component]
-  ;             :params  [:green]}]
+  ; [compose {:content [my-component]
+  ;           :params  [:green]}]
   [content-props]
   (letfn [
           ; (string-content {:content "Hi, my name is %!" :replacements ["John"]})
