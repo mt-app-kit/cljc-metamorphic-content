@@ -140,7 +140,7 @@
                 ; (var?       content) [render-fn-content  content-props]
                   (fn?        content) [render-fn-content  content-props]
                   (component? content) [component-content  content-props]
-                  (hiccup?    content) [hiccup-content     content-props]
+                  (hiccup?    content) (hiccup-content     content-props)
                   :return     content))]
 
          ; You can pass the content as a map that contains the :content key and other
