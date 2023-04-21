@@ -26,12 +26,13 @@ The <strong>cljc-metamorphic-content</strong> functional documentation is [avail
 
 You can track the changes of the <strong>cljc-metamorphic-content</strong> library [here](CHANGES.md).
 
+# Usage
+
 ### Index
 
 - [Metamorphic content as a function](#metamorphic-content-as-a-function)
-- [Metamorphic content as a Reagent component](#metamorphic-content-as-a-reagent-component)
 
-# Usage
+- [Metamorphic content as a Reagent component](#metamorphic-content-as-a-reagent-component)
 
 ### Metamorphic content as a function
 
