@@ -50,8 +50,8 @@ If the content has no additional properties the shorthand form could be used as 
 ```
 
 If the content is a string you can pass the `:prefix` and `:suffix` properties which
-will be joined to the content and/or the `:replacements` property as a vector that
-contains replacement values.
+will be joined to the content and/or the `:replacements` property (as a vector that
+contains replacement values).
 
 ```
 (resolve {:content "Apple"})
@@ -119,7 +119,7 @@ properties.
 ### Metamorphic content as a Reagent component
 
 You can use the [`metamorphic-content.api/resolve`](documentation/cljc/metamorphic-content/API.md#resolve)
-function as a Reagent component as well and it can resolve contents like Hiccup structures,
+function as a Reagent component as well and it can also resolve contents like Hiccup structures,
 Reagent components and React forms.
 
 If the content is a Hiccup structure the component shows it as it is and no additional
