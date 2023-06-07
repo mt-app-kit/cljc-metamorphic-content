@@ -11,7 +11,7 @@
 
 (defn compose
   ; @param (metamorphic-content) content-props
-  ; {:content (component, keyword, hiccup, number, string or symbol)(opt)
+  ; {:content (Reagent component, dictionary term keyword, hiccup, number, string or symbol of Reagent component)(opt)
   ;  :params (vector)(opt)
   ;  :prefix (string)(opt)
   ;   W/ {:content (keyword, number or string)}
@@ -20,8 +20,7 @@
   ;  :suffix (string)(opt)
   ;   W/ {:content (keyword, number or string)}}
   ; @param (metamorphic-content)(opt) placeholder-props
-  ;  In case of the composed content is empty the function composes the placeholder
-  ;  content instead.
+  ; In case of the composed content is empty the function composes the placeholder instead.
   ;
   ; @usage
   ; (compose {...})
