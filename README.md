@@ -43,10 +43,12 @@ If the content has no additional properties the shorthand form could be used as 
 
 ```
 (resolve {:content "Apple"})
-; => "Apple"
+; =>
+; "Apple"
 
 (resolve "Apple")
-; => "Apple"
+; =>
+; "Apple"
 ```
 
 If the content is a string you can pass the `:prefix` and `:suffix` properties which
@@ -55,22 +57,26 @@ contains replacement values).
 
 ```
 (resolve {:content "Apple"})
-; => "Apple"
+; =>
+; "Apple"
 ```
 
 ```
 (resolve {:content "420" :prefix "Weight: " :suffix "kg"})
-; => "Weight: 420kg"
+; =>
+; "Weight: 420kg"
 ```
 
 ```
 (resolve {:content "Hi, my name is %!" :replacements ["John"]})
-; => "Hi, my name is John!"
+; =>
+; "Hi, my name is John!"
 ```
 
 ```
 (resolve {:content "%1 of %2 item(s) downloaded" :replacements [1 5]})
-; => "1 of 5 item(s) downloaded"
+; =>
+; "1 of 5 item(s) downloaded"
 ```
 
 If the content is a number it will be converted to a string and the `:prefix`
@@ -78,12 +84,14 @@ and `:suffix` properties can be used.
 
 ```
 (resolve {:content 420})
-; => "420"
+; =>
+; "420"
 ```
 
 ```
 (resolve {:content 420 :prefix "Weight: " :suffix "kg"})
-; => "Weight: 420kg"
+; =>
+; "Weight: 420kg"
 ```
 
 If the content is a keyword it will be evaluated as a multilingual term ID by using
@@ -98,7 +106,8 @@ the [`cljc-dictionary`](https://github.com/bithandshake/cljc-dictionary) library
 (dictionary/select-language! :en)
 
 (resolve {:content :apple})
-; => "Apple"
+; =>
+; "Apple"
 ```
 
 Dictionary terms also can be used with the `:prefix`, `:suffix` and the `:replacements`
@@ -113,7 +122,8 @@ properties.
 (dictionary/select-language! :en)
 
 (resolve {:content :hi-my-name-is-n :replacements ["John"]})
-; => "Hi, my name is John!"
+; =>
+; "Hi, my name is John!"
 ```
 
 ### Metamorphic content as a Reagent component
