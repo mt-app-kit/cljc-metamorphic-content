@@ -1,8 +1,8 @@
 
 {:paths ["source-code/cljc"]
  :deps  {bithandshake/cljc-dictionary {:git/url "https://github.com/bithandshake/cljc-dictionary"
-                                       :sha     "493e89256298f81c45e8dec4c8ee256bcee9c854"}
+                                       :sha     "0ee577336ff48a8a4fd7ad6f3a2b09276223e2ab"}
          bithandshake/cljc-fruits     {:git/url "https://github.com/bithandshake/cljc-fruits"
-                                       :sha     "493e89256298f81c45e8dec4c8ee256bcee9c854"}
+                                       :sha     "0ee577336ff48a8a4fd7ad6f3a2b09276223e2ab"}
          bithandshake/reagent-api     {:git/url "https://github.com/bithandshake/reagent-api"
-                                       :sha     "493e89256298f81c45e8dec4c8ee256bcee9c854"}}}
+                                       :sha     "0ee577336ff48a8a4fd7ad6f3a2b09276223e2ab"}}}

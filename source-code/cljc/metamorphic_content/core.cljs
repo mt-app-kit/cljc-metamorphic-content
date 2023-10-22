@@ -138,7 +138,7 @@
              ; (var?   my-component) => false
              ; (fn?    my-component) => true
              ;
-             ; The fn? function matches with both types (#'my-component, my-component).
+             ; The fn? function matches both types (#'my-component, my-component).
              (cond (keyword?   content) (dictionary-content content-props)
                    (string?    content) (string-content     content-props)
                    (number?    content) (number-content     content-props)
