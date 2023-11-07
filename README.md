@@ -28,6 +28,9 @@ You can track the changes of the <strong>cljc-metamorphic-content</strong> libra
 
 # Usage
 
+> Some parameters of the following functions and some further functions are not discussed in this file.
+  To learn more about the available functionality, check out the [functional documentation](documentation/COVER.md)!
+
 ### Index
 
 - [Metamorphic content as a function](#metamorphic-content-as-a-function)
