@@ -14,14 +14,14 @@
   ; - Designed to create and format content by taking a variety of input types and returning a composed result.
   ; - It allows you to specify content using different formats, such as keywords, strings, numbers, Reagent components,
   ;   or even vectors, and it returns the formatted content.
-  ; - Dictionary term keywords are multilingual expression identifiers that could identify
+  ; - Dictionary term keywords are multilingual expression identifiers that can identify
   ;   a specific expression in a specific language in the application dictionary.
   ;   For further information about dictionary term keywords, check out the 'cljc-dictionary' library:
   ;   https://github.com/bithandshake/cljc-dictionary
   ; - You can use Reagent components directly within the content, allowing you to create
-  ;   dynamic and interactive content. The components could be specified as symbols or functions (vars).
+  ;   dynamic and interactive content. The components can be specified as symbols or functions (vars).
   ; - You can use the content parameter recursivelly:
-  ;   [compose {:content {:content "You could compose recursive structures as contents"}}]
+  ;   [compose {:content {:content "You can compose recursive structures as contents"}}]
   ;
   ; @param (metamorphic-content) content-props
   ; {:content (Reagent component, dictionary term keyword, hiccup, number, string or symbol of Reagent component)(opt)
@@ -42,7 +42,7 @@
   ; [compose {...}]
   ;
   ; @example
-  ; It could take a dictionary term identifier as content and return the translated
+  ; It can take a dictionary term identifier as content and return the translated
   ; expression in the selected language.
   ; (compose {:content :first-name})
   ; =>

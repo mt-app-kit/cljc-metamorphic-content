@@ -4,9 +4,12 @@
 ### Overview
 
 The <strong>cljc-metamorphic-content</strong> is a simple Clojure/ClojureScript
-contents renderer that you can pass different types of content such as Reagent
+content renderer that can compose different types of contents such as Reagent
 components, React forms, Hiccup structures, numbers, strings or multilingual terms.
 
+> UI components in this library are Reagent components. For more information, check out
+  the [Reagent Project](https://github.com/reagent-project/reagent).
+  
 ### deps.edn
 
 ```
