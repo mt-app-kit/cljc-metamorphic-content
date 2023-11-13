@@ -33,7 +33,7 @@
   ;  :suffix (string)(opt)
   ;   W/ {:content (keyword, number or string)}}
   ; @param (metamorphic-content)(opt) placeholder-props
-  ; In case of the composed content is empty the 'compose' function returns the placeholder instead (if any given).
+  ; In case the composed content is empty the 'compose' function returns the placeholder instead (if any given).
   ;
   ; @usage
   ; (compose {...})
