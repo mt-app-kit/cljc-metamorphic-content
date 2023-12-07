@@ -1,10 +1,10 @@
 
 (ns metamorphic-content.core
     (:require [dictionary.api            :as dictionary]
-              [hiccup.api                :refer [hiccup?]]
+              [fruits.hiccup.api         :refer [hiccup?]]
+              [fruits.vector.api         :as vector]
               [metamorphic-content.utils :as utils]
-              [reagent.api               :as reagent]
-              [vector.api                :as vector]))
+              [reagent.api               :as reagent]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
