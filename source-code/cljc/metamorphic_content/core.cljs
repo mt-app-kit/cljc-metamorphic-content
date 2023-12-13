@@ -16,7 +16,7 @@
   ;   or even vectors, and it returns the formatted content.
   ; - Dictionary term keywords are multilingual expression identifiers that can identify
   ;   a specific expression in a specific language in the application dictionary.
-  ;   For further information about dictionary term keywords, check out the 'cljc-dictionary' library:
+  ;   For more information about dictionary term keywords, check out the 'cljc-dictionary' library:
   ;   https://github.com/bithandshake/cljc-dictionary
   ; - You can use Reagent components directly within the content, allowing you to create
   ;   dynamic and interactive content. The components can be specified as symbols or functions (vars).
