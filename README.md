@@ -9,7 +9,7 @@ components, React forms, Hiccup structures, numbers, strings or multilingual ter
 
 > UI components in this library are Reagent components. For more information, check out
   the [Reagent Project](https://github.com/reagent-project/reagent).
-  
+
 ### deps.edn
 
 ```
@@ -23,7 +23,7 @@ Check out the latest commit on the [release branch](https://github.com/bithandsh
 
 ### Documentation
 
-The <strong>cljc-metamorphic-content</strong> functional documentation is [available here](documentation/COVER.md).
+The <strong>cljc-metamorphic-content</strong> functional documentation is [available here](https://bithandshake.github.io/cljc-metamorphic-content).
 
 ### Changelog
 
