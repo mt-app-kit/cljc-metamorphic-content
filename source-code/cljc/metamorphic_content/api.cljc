@@ -5,5 +5,5 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-; @redirect (metamorphic-content.core)
+; @redirect (metamorphic-content.core/*)
 (def compose core/compose)

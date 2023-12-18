@@ -14,7 +14,7 @@ components, React forms, Hiccup structures, numbers, strings or multilingual ter
 
 ```
 {:deps {bithandshake/cljc-metamorphic-content {:git/url "https://github.com/bithandshake/cljc-metamorphic-content"
-                                               :sha     "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}}
+                                               :sha     "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}}}
 ```
 
 ### Current version
