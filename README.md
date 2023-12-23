@@ -3,9 +3,9 @@
 
 ### Overview
 
-The <strong>cljc-metamorphic-content</strong> is a simple Clojure/ClojureScript
-content renderer that can compose different types of contents such as Reagent
-components, React forms, Hiccup structures, numbers, strings or multilingual terms.
+The <strong>cljc-metamorphic-content</strong> is a simple multi-type content renderer for Clojure projects.
+It can compose different types of contents such as Reagent components, React forms, Hiccup structures,
+numbers, strings or multilingual terms.
 
 > UI components in this library are [Reagent](https://github.com/reagent-project/reagent) components.
 
@@ -100,15 +100,15 @@ and `:suffix` properties can be used.
 ```
 
 If the content is a keyword it will be evaluated as a multilingual term ID by using
-the [`cljc-dictionary`](https://github.com/bithandshake/cljc-dictionary) library.
+the [`cljc-app-dictionary`](https://github.com/bithandshake/cljc-app-dictionary) library.
 
 ```
 (ns my-namespace
-    (:require [dictionary.api :as dictionary]
+    (:require [app-dictionary.api :as app-dictionary]
               [metamorphic-content.api :refer [resolve]]))
 
-(dictionary/add-term! :apple {:en "Apple" :hu "Alma"})              
-(dictionary/select-language! :en)
+(app-dictionary/add-term! :apple {:en "Apple" :hu "Alma"})              
+(app-dictionary/select-language! :en)
 
 (resolve {:content :apple})
 ; =>
@@ -120,10 +120,10 @@ properties.
 
 ```
 (ns my-namespace
-    (:require [dictionary.api :as dictionary]
+    (:require [app-dictionary.api :as app-dictionary]
               [metamorphic-content.api :refer [resolve]]))
 
-(dictionary/add-term! :hi-my-name-is-n {:en "Hi, my name is %!" :hu "Szia, az én nevem %!"})              
+(app-dictionary/add-term! :hi-my-name-is-n {:en "Hi, my name is %!" :hu "Szia, az én nevem %!"})              
 (dictionary/select-language! :en)
 
 (resolve {:content :hi-my-name-is-n :replacements ["John"]})

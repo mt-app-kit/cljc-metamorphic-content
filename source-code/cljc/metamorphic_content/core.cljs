@@ -1,6 +1,6 @@
 
 (ns metamorphic-content.core
-    (:require [dictionary.api            :as dictionary]
+    (:require [app-dictionary.api :as app-dictionary]
               [fruits.hiccup.api         :refer [hiccup?]]
               [fruits.vector.api         :as vector]
               [metamorphic-content.utils :as utils]
@@ -16,8 +16,8 @@
   ;   or even vectors, and it returns the formatted content.
   ; - Dictionary term keywords are multilingual expression identifiers that can identify
   ;   a specific expression in a specific language in the application dictionary.
-  ;   For more information about dictionary term keywords, check out the 'cljc-dictionary' library:
-  ;   https://github.com/bithandshake/cljc-dictionary
+  ;   For more information about dictionary term keywords, check out the 'cljc-app-dictionary' library:
+  ;   https://github.com/bithandshake/cljc-app-dictionary
   ; - You can use Reagent components directly within the content, allowing you to create
   ;   dynamic and interactive content. The components can be specified as symbols or functions (vars).
   ; - You can use the content parameter recursivelly:
@@ -107,7 +107,7 @@
            ; =>
            ; "Hi, my name is John!"
            (dictionary-content [content-props]
-                               (string-content (update content-props :content dictionary/look-up)))
+                               (string-content (update content-props :content app-dictionary/look-up)))
 
            ; (hiccup-content {:content [:div "Apple"]})
            ; =>
