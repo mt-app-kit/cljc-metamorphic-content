@@ -33,7 +33,7 @@
   ;  :suffix (string)(opt)
   ;   W/ {:content (keyword, number or string)}}
   ; @param (metamorphic-content)(opt) placeholder-props
-  ; In case the composed content is empty the 'compose' function returns the placeholder instead (if any given).
+  ; In case the composed content is empty the 'compose' function returns the composed placeholder (if any).
   ;
   ; @usage
   ; (compose {...})
@@ -64,10 +64,10 @@
   ; [compose {:content [my-component :green]}]
   ;
   ; @usage
-  ; (defn my-component   [my-color])
-  ; (defn your-component [your-color])
-  ; [compose {:content [:<> [my-component   :green]
-  ;                         [your-component :blue]]}]
+  ; (defn my-component      [my-color])
+  ; (defn another-component [another-color])
+  ; [compose {:content [:<> [my-component      :green]
+  ;                         [another-component :blue]]}]
   ;
   ; @usage
   ; (defn my-component [color])

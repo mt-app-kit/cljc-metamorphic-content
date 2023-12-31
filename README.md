@@ -44,7 +44,7 @@ You can track the changes of the <strong>cljc-metamorphic-content</strong> libra
 The [`metamorphic-content.api/resolve`](documentation/cljc/metamorphic-content/API.md#resolve)
 function takes a map (or its shorthand form) that describes the content what the function returns.
 
-If the content has no additional properties the shorthand form could be used as well.
+If the content has no additional properties a shorthand form could be used as well.
 
 ```
 (resolve {:content "Apple"})
