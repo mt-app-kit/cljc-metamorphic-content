@@ -1,6 +1,6 @@
 
 (ns metamorphic-content.core
-    (:require [app-dictionary.api :as app-dictionary]
+    (:require [app-dictionary.api        :as app-dictionary]
               [fruits.hiccup.api         :refer [hiccup?]]
               [fruits.vector.api         :as vector]
               [metamorphic-content.utils :as utils]
