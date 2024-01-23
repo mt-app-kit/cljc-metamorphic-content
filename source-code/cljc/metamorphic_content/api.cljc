@@ -5,5 +5,111 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
+; @tutorial Metamorphic content types
+;
+; Dictionary term IDs are composed to translated dictionary expressions in a selected language.
+;
+; @usage
+; (compose :first-name)
+; =>
+; "First name"
+;
+; @usage
+; (ns my-namespace
+;     (:require [app-dictionary.api :as app-dictionary]
+;               [metamorphic-content.api :refer [resolve]]))
+;
+; (app-dictionary/add-term! :apple {:en "Apple" :hu "Alma"})
+; (app-dictionary/select-language! :en)
+;
+; (resolve :apple)
+; =>
+; "Apple"
+; @---
+;
+; @usage
+; (ns my-namespace
+;     (:require [app-dictionary.api :as app-dictionary]
+;               [metamorphic-content.api :refer [resolve]]))
+;
+; (app-dictionary/add-term! :hi-my-name-is-n {:en "Hi, my name is %!" :hu "Szia, az én nevem %!"})
+; (dictionary/select-language! :en)
+;
+; (resolve {:content :hi-my-name-is-n :replacements ["John"]})
+; =>
+; "Hi, my name is John!"
+; @---
+;
+; Raw string contents are rendered as-is, unless at least one of the ':prefix', ':replacements' or ':suffix' parameters is provided.
+;
+; @usage
+; (compose "Hakuna Matata")
+; =>
+; "Hakuna Matata"
+;
+; Reagent components can be provided as a symbol.
+;
+; @usage
+; (defn my-component [] [:div ...])
+; [compose #'my-component]
+;
+; Reagent components can be provided as a render vector.
+;
+; @usage
+; (defn my-component [my-color] [:div ...])
+; [compose [my-component :green]]
+;
+; Reagent components can take parameters via the 'compose' function.
+;
+; @usage
+; (defn my-component      [my-color]      [:div ...])
+; (defn another-component [another-color] [:div ...])
+; [compose [:<> [my-component      :green]
+;               [another-component :blue]]]
+;
+; @usage
+; (defn my-component [my-color] [:div ...])
+; [compose {:content #'my-component
+;           :params  [:green]}]
+;
+; @usage
+; (defn my-component [my-color] [:div ...])
+; [compose {:content [my-component]
+;           :params  [:green]}]
+;
+; In case the first paramater is composed to an empty value, it composes the second parameter, and so on.
+;
+; @usage
+; (compose nil "My placeholder")
+;
+; String contents can be joined with the given `:prefix` and `:suffix` properties.
+;
+; @usage
+; (resolve {:content "420" :prefix "Weight: " :suffix "kg"})
+; =>
+; "Weight: 420kg"
+;
+; String contents can use replacement values.
+;
+; @usage
+; (resolve {:content "Hi, my name is %!" :replacements ["John"]})
+; =>
+; "Hi, my name is John!"
+;
+; @usage
+; (resolve {:content "%1 of %2 item(s) downloaded" :replacements [1 5]})
+; =>
+; "1 of 5 item(s) downloaded"
+;
+; Number contents are converted to string.
+;
+; @usage
+; (resolve {:content 420 :prefix "Weight: " :suffix "kg"})
+; =>
+; "Weight: 420kg"
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
 ; @redirect (metamorphic-content.core/*)
 (def compose core/compose)

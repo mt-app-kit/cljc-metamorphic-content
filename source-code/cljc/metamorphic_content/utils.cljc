@@ -25,3 +25,28 @@
   (if-not (empty? content)
           (if replacements (string/use-replacements (str prefix content suffix) replacements)
                            (str prefix content suffix))))
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+(defn to-longhand
+  ; @ignore
+  ;
+  ; @param (*) content-props
+  ;
+  ; @usage
+  ; (to-longhand [:div "My-content"])
+  ; =>
+  ; {:content [:div "My content"]}
+  ;
+  ; @usage
+  ; (to-longhand {:content [:div "My-content"]})
+  ; =>
+  ; {:content [:div "My content"]}
+  ;
+  ; @return (map)
+  ; {:content (metamorphic-content)}
+  [content-props]
+  (if (-> content-props map?)
+      (-> content-props)
+      {:content content-props}))
