@@ -8,10 +8,77 @@
 ; @tutorial Metamorphic content types
 ;
 ; @note
-; Check out the (cljc-app-dictionary)[https://github.com/mt-app-kit/cljc-app-dictionary] library.
+; Check out the [cljc-app-dictionary](https://github.com/mt-app-kit/cljc-app-dictionary) library.
 ;
 ; @note
-; Check out the (Reagent)[https://github.com/reagent-project/reagent] library.
+; Check out the [Reagent](https://github.com/reagent-project/reagent) library.
+;
+;
+;
+; @title Raw string contents are rendered as-is, unless at least one of the ':prefix', ':replacements' or ':suffix' parameters is provided.
+;
+; @usage
+; (compose "Hakuna Matata")
+; =>
+; "Hakuna Matata"
+;
+; @usage
+; (resolve {:content "420" :prefix "Weight: " :suffix "kg"})
+; =>
+; "Weight: 420kg"
+;
+; @usage
+; (resolve {:content "Hi, my name is %!" :replacements ["John"]})
+; =>
+; "Hi, my name is John!"
+;
+; @usage
+; (resolve {:content "%1 of %2 item(s) downloaded" :replacements [1 5]})
+; =>
+; "1 of 5 item(s) downloaded"
+;
+;
+;
+; @title Number contents are converted to strings.
+;
+; @usage
+; (resolve {:content 420 :prefix "Weight: " :suffix "kg"})
+; =>
+; "Weight: 420kg"
+;
+;
+;
+; @title Reagent components can be provided as symbols or render vectors.
+;
+; @usage
+; (defn my-component [] [:div ...])
+; [compose #'my-component]
+;
+; @usage
+; (defn my-component [my-color] [:div ...])
+; [compose [my-component :green]]
+;
+;
+;
+; @title Reagent components can take parameters via the 'compose' function.
+;
+; @usage
+; (defn my-component      [my-color]      [:div ...])
+; (defn another-component [another-color] [:div ...])
+; [compose [:<> [my-component      :green]
+;               [another-component :blue]]]
+;
+; @usage
+; (defn my-component [my-color] [:div ...])
+; [compose {:content #'my-component
+;           :params  [:green]}]
+;
+; @usage
+; (defn my-component [my-color] [:div ...])
+; [compose {:content [my-component]
+;           :params  [:green]}]
+;
+;
 ;
 ; @title Dictionary term IDs are composed to translated dictionary expressions in a selected language.
 ;
@@ -46,73 +113,12 @@
 ; "Hi, my name is John!"
 ; @---
 ;
-; @title Raw string contents are rendered as-is, unless at least one of the ':prefix', ':replacements' or ':suffix' parameters is provided.
 ;
-; @usage
-; (compose "Hakuna Matata")
-; =>
-; "Hakuna Matata"
-;
-; Reagent components can be provided as a symbol.
-;
-; @usage
-; (defn my-component [] [:div ...])
-; [compose #'my-component]
-;
-; Reagent components can be provided as a render vector.
-;
-; @usage
-; (defn my-component [my-color] [:div ...])
-; [compose [my-component :green]]
-;
-; @title Reagent components can take parameters via the 'compose' function.
-;
-; @usage
-; (defn my-component      [my-color]      [:div ...])
-; (defn another-component [another-color] [:div ...])
-; [compose [:<> [my-component      :green]
-;               [another-component :blue]]]
-;
-; @usage
-; (defn my-component [my-color] [:div ...])
-; [compose {:content #'my-component
-;           :params  [:green]}]
-;
-; @usage
-; (defn my-component [my-color] [:div ...])
-; [compose {:content [my-component]
-;           :params  [:green]}]
 ;
 ; @title In case the first paramater is composed to an empty value, it composes the second parameter, and so on.
 ;
 ; @usage
-; (compose nil "My placeholder" ...)
-;
-; @title String contents can be joined with the given `:prefix` and `:suffix` properties.
-;
-; @usage
-; (resolve {:content "420" :prefix "Weight: " :suffix "kg"})
-; =>
-; "Weight: 420kg"
-;
-; @title String contents can use replacement values.
-;
-; @usage
-; (resolve {:content "Hi, my name is %!" :replacements ["John"]})
-; =>
-; "Hi, my name is John!"
-;
-; @usage
-; (resolve {:content "%1 of %2 item(s) downloaded" :replacements [1 5]})
-; =>
-; "1 of 5 item(s) downloaded"
-;
-; @title Number contents are converted to string.
-;
-; @usage
-; (resolve {:content 420 :prefix "Weight: " :suffix "kg"})
-; =>
-; "Weight: 420kg"
+; (compose nil "" "My placeholder" ...)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

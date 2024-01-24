@@ -118,6 +118,7 @@
                                      (reagent/component? content) [component-content  content-props]
                                      (hiccup?            content) (hiccup-content     content-props)
                                      :return             content))
+
           ; ...
           (compose-content [content-props]
                            (let [content-props    (utils/to-longhand   content-props)
