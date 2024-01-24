@@ -35,7 +35,7 @@
   ;
   ; @usage
   ; [compose {:content "My content"}]
-  [contents]
+  [& contents]
   (letfn [; (string-content {:content "Hi, my name is %!" :replacements ["John"]})
           ; =>
           ; "Hi, my name is John!"

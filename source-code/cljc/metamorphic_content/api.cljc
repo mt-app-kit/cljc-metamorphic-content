@@ -52,11 +52,15 @@
 ;
 ; @usage
 ; (defn my-component [] [:div ...])
-; [compose #'my-component]
+; (defn my-ui
+;   []
+;   [compose #'my-component])
 ;
 ; @usage
 ; (defn my-component [my-color] [:div ...])
-; [compose [my-component :green]]
+; (defn my-ui
+;   []
+;   [compose [my-component :green]])
 ;
 ;
 ;
@@ -65,18 +69,24 @@
 ; @usage
 ; (defn my-component      [my-color]      [:div ...])
 ; (defn another-component [another-color] [:div ...])
-; [compose [:<> [my-component      :green]
-;               [another-component :blue]]]
+; (defn my-ui
+;   []
+;   [compose [:<> [my-component      :green]
+;                 [another-component :blue]]])
 ;
 ; @usage
 ; (defn my-component [my-color] [:div ...])
-; [compose {:content #'my-component
-;           :params  [:green]}]
+; (defn my-ui
+;   []
+;   [compose {:content #'my-component
+;             :params  [:green]}])
 ;
 ; @usage
 ; (defn my-component [my-color] [:div ...])
-; [compose {:content [my-component]
-;           :params  [:green]}]
+; (defn my-ui
+;   []
+;   [compose {:content [my-component]
+;             :params  [:green]}])
 ;
 ;
 ;
