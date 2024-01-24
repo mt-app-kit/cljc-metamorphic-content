@@ -7,8 +7,6 @@ The <strong>cljc-metamorphic-content</strong> is a simple multi-type content ren
 It can compose variety of content types such as Reagent components, React forms, Hiccup forms,
 numbers, strings or multilingual terms.
 
-> UI components in this library are [Reagent](https://github.com/reagent-project/reagent) components.
-
 ### deps.edn
 
 ```

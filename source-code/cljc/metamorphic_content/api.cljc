@@ -7,7 +7,13 @@
 
 ; @tutorial Metamorphic content types
 ;
-; Dictionary term IDs are composed to translated dictionary expressions in a selected language.
+; @note
+; Check out the (cljc-app-dictionary)[https://github.com/mt-app-kit/cljc-app-dictionary] library.
+;
+; @note
+; Check out the (Reagent)[https://github.com/reagent-project/reagent] library.
+;
+; @title Dictionary term IDs are composed to translated dictionary expressions in a selected language.
 ;
 ; @usage
 ; (compose :first-name)
@@ -40,7 +46,7 @@
 ; "Hi, my name is John!"
 ; @---
 ;
-; Raw string contents are rendered as-is, unless at least one of the ':prefix', ':replacements' or ':suffix' parameters is provided.
+; @title Raw string contents are rendered as-is, unless at least one of the ':prefix', ':replacements' or ':suffix' parameters is provided.
 ;
 ; @usage
 ; (compose "Hakuna Matata")
@@ -59,7 +65,7 @@
 ; (defn my-component [my-color] [:div ...])
 ; [compose [my-component :green]]
 ;
-; Reagent components can take parameters via the 'compose' function.
+; @title Reagent components can take parameters via the 'compose' function.
 ;
 ; @usage
 ; (defn my-component      [my-color]      [:div ...])
@@ -77,19 +83,19 @@
 ; [compose {:content [my-component]
 ;           :params  [:green]}]
 ;
-; In case the first paramater is composed to an empty value, it composes the second parameter, and so on.
+; @title In case the first paramater is composed to an empty value, it composes the second parameter, and so on.
 ;
 ; @usage
-; (compose nil "My placeholder")
+; (compose nil "My placeholder" ...)
 ;
-; String contents can be joined with the given `:prefix` and `:suffix` properties.
+; @title String contents can be joined with the given `:prefix` and `:suffix` properties.
 ;
 ; @usage
 ; (resolve {:content "420" :prefix "Weight: " :suffix "kg"})
 ; =>
 ; "Weight: 420kg"
 ;
-; String contents can use replacement values.
+; @title String contents can use replacement values.
 ;
 ; @usage
 ; (resolve {:content "Hi, my name is %!" :replacements ["John"]})
@@ -101,7 +107,7 @@
 ; =>
 ; "1 of 5 item(s) downloaded"
 ;
-; Number contents are converted to string.
+; @title Number contents are converted to string.
 ;
 ; @usage
 ; (resolve {:content 420 :prefix "Weight: " :suffix "kg"})

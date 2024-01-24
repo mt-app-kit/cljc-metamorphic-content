@@ -10,12 +10,6 @@
 ;; ----------------------------------------------------------------------------
 
 (defn compose
-  ; @note
-  ; Check out the (cljc-app-dictionary)[https://github.com/mt-app-kit/cljc-app-dictionary] library.
-  ;
-  ; @note
-  ; Check out the (Reagent)[https://github.com/reagent-project/reagent] library.
-  ;
   ; @description
   ; - Takes a variety of content types and returns a composed result.
   ; - The provided content (in shorthand form) can be a Reagent component, React form, HICCUP form, number, string or a dictionary term ID.
