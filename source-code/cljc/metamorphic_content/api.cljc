@@ -118,7 +118,7 @@
 ; @title In case the first paramater is composed to an empty value, it composes the second parameter, and so on.
 ;
 ; @usage
-; (compose nil "" "My placeholder" ...)
+; (compose "" nil "My placeholder" ...)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
