@@ -1,6 +1,26 @@
 
 (ns metamorphic-content.utils
-    (:require [fruits.string.api :as string]))
+    #?(:clj  (:require [fruits.string.api :as string])
+       :cljs (:require [fruits.string.api :as string]
+                       [reagent.api       :as reagent])))
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+(defn component?
+  ; @ignore
+  ;
+  ; @param (*) n
+  ;
+  ; @usage
+  ; (defn my-component [] [:div ...])
+  ; (component? [my-component])
+  ; =>
+  ; true
+  ;
+  ; @return (boolean)
+  [n]
+  #?(:cljs (reagent/component? n)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -14,7 +34,7 @@
   ;  :replacements (numbers or strings in vector)(opt) replacements
   ;  :suffix (string)(opt)}
   ;
-  ; @example
+  ; @usage
   ; (join-content {:content "Hi, my name is %!"
   ;                :replacements ["John"]})
   ; =>

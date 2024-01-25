@@ -3,8 +3,7 @@
     (:require [app-dictionary.api        :as app-dictionary]
               [fruits.hiccup.api         :refer [hiccup?]]
               [fruits.vector.api         :as vector]
-              [metamorphic-content.utils :as utils]
-              [reagent.api               :as reagent]))
+              [metamorphic-content.utils :as utils]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -110,14 +109,14 @@
                                ;
                                ; The 'fn?' function matches both types (#'my-component, my-component).
                                ; Therefore, no need to use the 'var?' function as a condition.
-                               (cond (keyword?           content) (dictionary-content content-props)
-                                     (string?            content) (string-content     content-props)
-                                     (number?            content) (number-content     content-props)
-                                   ; (var?               content) [render-fn-content  content-props]
-                                     (fn?                content) [render-fn-content  content-props]
-                                     (reagent/component? content) [component-content  content-props]
-                                     (hiccup?            content) (hiccup-content     content-props)
-                                     :return             content))
+                               (cond (keyword?         content) (dictionary-content content-props)
+                                     (string?          content) (string-content     content-props)
+                                     (number?          content) (number-content     content-props)
+                                   ; (var?             content) [render-fn-content  content-props]
+                                     (fn?              content) [render-fn-content  content-props]
+                                     (utils/component? content) [component-content  content-props]
+                                     (hiccup?          content) (hiccup-content     content-props)
+                                     :return           content))
 
           ; ...
           (compose-content [content-props]
