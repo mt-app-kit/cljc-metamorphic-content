@@ -13,8 +13,6 @@
   ; - Takes a variety of content types and returns a composed result.
   ; - The provided content (in shorthand form) can be a Reagent component, React form, HICCUP form, number, string or a dictionary term ID.
   ; - The provided content (in longhand form) can be a map that describes the content and contains the actual content as the ':content' property.
-  ; - The content can be provided recursivelly:
-  ;   (compose {:content {:content "My content"}})
   ;
   ; @param (list of metamorphic-contents) contents
   ; {:content (Reagent component, dictionary term keyword, hiccup, number, string or symbol of Reagent component)(opt)
@@ -34,6 +32,14 @@
   ;
   ; @usage
   ; [compose {:content "My content"}]
+  ;
+  ; @usage
+  ; The content can be provided recursivelly:
+  ; (compose {:content {:content "My content"}})
+  ;
+  ; @usage
+  ; In case the first paramater is composed to an empty value, it composes the second parameter, and so on.
+  ; (compose "" nil "My placeholder" ...)
   [& contents]
   (letfn [; (string-content {:content "Hi, my name is %!" :replacements ["John"]})
           ; =>

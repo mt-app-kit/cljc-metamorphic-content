@@ -7,15 +7,25 @@
 
 ; @tutorial Metamorphic content types
 ;
-; @note
-; Check out the [cljc-app-dictionary](https://github.com/mt-app-kit/cljc-app-dictionary) library.
+; @links
+; - Check out the [cljc-app-dictionary](https://github.com/mt-app-kit/cljc-app-dictionary) library.
+; - Check out the [Reagent](https://github.com/reagent-project/reagent) library.
 ;
-; @note
-; Check out the [Reagent](https://github.com/reagent-project/reagent) library.
+; @---
+; Supported content types:
+; - Raw string
+; - Number
+; - Reagent component
+; - React from
+; - Hiccup form
+; - Dictionary term ID
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+; @tutorial Raw strings
 ;
-;
-;
-; @title Raw string contents are rendered as-is, unless at least one of the ':prefix', ':replacements' or ':suffix' parameters is provided.
+; Raw string contents are rendered as-is, unless at least one of the ':prefix', ':replacements' or ':suffix' parameters is provided.
 ;
 ; @usage
 ; (compose "Hakuna Matata")
@@ -23,32 +33,38 @@
 ; "Hakuna Matata"
 ;
 ; @usage
-; (resolve {:content "420" :prefix "Weight: " :suffix "kg"})
+; (compose {:content "420" :prefix "Weight: " :suffix "kg"})
 ; =>
 ; "Weight: 420kg"
 ;
 ; @usage
-; (resolve {:content "Hi, my name is %!" :replacements ["John"]})
+; (compose {:content "Hi, my name is %!" :replacements ["John"]})
 ; =>
 ; "Hi, my name is John!"
 ;
 ; @usage
-; (resolve {:content "%1 of %2 item(s) downloaded" :replacements [1 5]})
+; (compose {:content "%1 of %2 item(s) downloaded" :replacements [1 5]})
 ; =>
 ; "1 of 5 item(s) downloaded"
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+; @tutorial Numbers
 ;
-;
-;
-; @title Number contents are converted to strings.
+; Number contents are converted to strings.
 ;
 ; @usage
-; (resolve {:content 420 :prefix "Weight: " :suffix "kg"})
+; (compose {:content 420 :prefix "Weight: " :suffix "kg"})
 ; =>
 ; "Weight: 420kg"
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+; @tutorial Reagent components
 ;
-;
-;
-; @title Reagent components can be provided as symbols or render vectors.
+; Reagent components can be provided as symbols or render vectors.
 ;
 ; @usage
 ; (defn my-component [] [:div ...])
@@ -64,7 +80,8 @@
 ;
 ;
 ;
-; @title Reagent components can take parameters via the 'compose' function.
+; @---
+; Reagent components can take parameters via the 'compose' function.
 ;
 ; @usage
 ; (defn my-component      [my-color]      [:div ...])
@@ -87,10 +104,13 @@
 ;   []
 ;   [compose {:content [my-component]
 ;             :params  [:green]}])
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+; @tutorial Dictionary term IDs
 ;
-;
-;
-; @title Dictionary term IDs are composed to translated dictionary expressions in a selected language.
+; Dictionary term IDs are composed to translated dictionary expressions in a selected language.
 ;
 ; @usage
 ; (compose :first-name)
@@ -100,35 +120,26 @@
 ; @usage
 ; (ns my-namespace
 ;     (:require [app-dictionary.api :as app-dictionary]
-;               [metamorphic-content.api :refer [resolve]]))
+;               [metamorphic-content.api :refer [compose]]))
 ;
 ; (app-dictionary/add-term! :apple {:en "Apple" :hu "Alma"})
 ; (app-dictionary/select-language! :en)
 ;
-; (resolve :apple)
+; (compose :apple)
 ; =>
 ; "Apple"
-; @---
 ;
 ; @usage
 ; (ns my-namespace
 ;     (:require [app-dictionary.api :as app-dictionary]
-;               [metamorphic-content.api :refer [resolve]]))
+;               [metamorphic-content.api :refer [compose]]))
 ;
 ; (app-dictionary/add-term! :hi-my-name-is-n {:en "Hi, my name is %!" :hu "Szia, az én nevem %!"})
 ; (dictionary/select-language! :en)
 ;
-; (resolve {:content :hi-my-name-is-n :replacements ["John"]})
+; (compose {:content :hi-my-name-is-n :replacements ["John"]})
 ; =>
 ; "Hi, my name is John!"
-; @---
-;
-;
-;
-; @title In case the first paramater is composed to an empty value, it composes the second parameter, and so on.
-;
-; @usage
-; (compose "" nil "My placeholder" ...)
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
