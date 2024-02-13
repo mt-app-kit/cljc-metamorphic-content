@@ -2,7 +2,7 @@
 (ns metamorphic-content.utils
     #?(:clj  (:require [fruits.string.api :as string])
        :cljs (:require [fruits.string.api :as string]
-                       [reagent.api       :as reagent])))
+                       [reagent.tools.api :as reagent.tools])))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -20,7 +20,7 @@
   ;
   ; @return (boolean)
   [n]
-  #?(:cljs (reagent/component? n)))
+  #?(:cljs (reagent.tools/component? n)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
