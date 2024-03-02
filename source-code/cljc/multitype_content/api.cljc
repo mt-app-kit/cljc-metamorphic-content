@@ -1,11 +1,11 @@
 
-(ns metamorphic-content.api
-    (:require [metamorphic-content.core :as core]))
+(ns multitype-content.api
+    (:require [multitype-content.core :as core]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-; @tutorial Metamorphic content types
+; @tutorial Multi type contents
 ;
 ; @links
 ; - Check out the [cljc-app-dictionary](https://github.com/mt-app-kit/cljc-app-dictionary) library.
@@ -120,7 +120,7 @@
 ; @usage
 ; (ns my-namespace
 ;     (:require [app-dictionary.api :as app-dictionary]
-;               [metamorphic-content.api :refer [compose]]))
+;               [multitype-content.api :refer [compose]]))
 ;
 ; (app-dictionary/add-term! :apple {:en "Apple" :hu "Alma"})
 ; (app-dictionary/select-language! :en)
@@ -132,7 +132,7 @@
 ; @usage
 ; (ns my-namespace
 ;     (:require [app-dictionary.api :as app-dictionary]
-;               [metamorphic-content.api :refer [compose]]))
+;               [multitype-content.api :refer [compose]]))
 ;
 ; (app-dictionary/add-term! :hi-my-name-is-n {:en "Hi, my name is %!" :hu "Szia, az én nevem %!"})
 ; (dictionary/select-language! :en)
@@ -144,5 +144,5 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-; @redirect (metamorphic-content.core/*)
+; @redirect (multitype-content.core/*)
 (def compose core/compose)

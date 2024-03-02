@@ -1,5 +1,5 @@
 
-(ns metamorphic-content.utils
+(ns multitype-content.utils
     #?(:clj  (:require [fruits.string.api :as string])
        :cljs (:require [fruits.string.api :as string]
                        [reagent.tools.api :as reagent.tools])))
@@ -65,7 +65,7 @@
   ; {:content [:div "My content"]}
   ;
   ; @return (map)
-  ; {:content (metamorphic-content)}
+  ; {:content (multitype-content)}
   [content-props]
   (if (-> content-props map?)
       (-> content-props)
