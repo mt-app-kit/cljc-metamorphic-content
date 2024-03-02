@@ -25,12 +25,12 @@
 
 ; @tutorial Raw strings
 ;
-; Raw string contents are rendered as-is, unless at least one of the ':prefix', ':replacements' or ':suffix' parameters is provided.
+; Raw string contents are returned as-is, unless at least one of the ':prefix', ':replacements' or ':suffix' parameters is provided.
 ;
 ; @usage
-; (compose "Hakuna Matata")
+; (compose "My content")
 ; =>
-; "Hakuna Matata"
+; "My content"
 ;
 ; @usage
 ; (compose {:content "420" :prefix "Weight: " :suffix "kg"})
@@ -52,7 +52,7 @@
 
 ; @tutorial Numbers
 ;
-; Number contents are converted to strings.
+; Number contents are converted to and composed as [strings](#raw-strings).
 ;
 ; @usage
 ; (compose {:content 420 :prefix "Weight: " :suffix "kg"})
@@ -64,7 +64,7 @@
 
 ; @tutorial Reagent components
 ;
-; Reagent components can be provided as symbols or render vectors.
+; Reagent components can be provided as symbols or as render vectors.
 ;
 ; @usage
 ; (defn my-component [] [:div ...])

@@ -3,7 +3,10 @@
 
 ### Overview
 
-The <strong>cljc-multitype-content</strong> is a simple multi-type content renderer for Clojure projects.
+The <strong>cljc-multitype-content</strong> is a simple multi-type content composer for Clojure projects.
+
+### Description
+
 It can compose variety of content types such as Reagent components, React forms, Hiccup forms, numbers, strings or multilingual terms.
 
 ### deps.edn

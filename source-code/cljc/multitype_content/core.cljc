@@ -34,11 +34,11 @@
   ; [compose {:content "My content"}]
   ;
   ; @usage
-  ; The content can be provided recursivelly:
+  ; ;; The content can be provided recursivelly:
   ; (compose {:content {:content "My content"}})
   ;
   ; @usage
-  ; In case the first paramater is composed to an empty value, it composes the second parameter, and so on.
+  ; ;; In case the first paramater is composed to an empty value, it composes the second parameter, and so on.
   ; (compose "" nil "My placeholder" ...)
   [& contents]
   (letfn [; (string-content {:content "Hi, my name is %!" :replacements ["John"]})
