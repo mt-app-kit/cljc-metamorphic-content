@@ -12,7 +12,7 @@
   ; @description
   ; - Takes a variety of content types and returns a composed result.
   ; - The provided content (in shorthand form) can be a Reagent component, React form, HICCUP form, number, string or a dictionary term ID.
-  ; - The provided content (in longhand form) can be a map that describes the content and contains the actual content as the ':content' property.
+  ; - The provided content (in longhand form) can be a map that describes the content and contains the actual content as its ':content' property.
   ;
   ; @param (list of multitype-contents) contents
   ; {:content (Reagent component, dictionary term keyword, hiccup, number, string or symbol of Reagent component)(opt)
@@ -105,24 +105,24 @@
                                         (-> content)))
 
           ; ...
-          (multitype-content [{:keys [content] :as content-props}
-                              ; The symbol must resolve to a var, and the Var object itself (not its value) is returned.
-                              ;
-                              ; (var? #'my-component) => true
-                              ; (fn?  #'my-component) => true
-                              ; (var?   my-component) => false
-                              ; (fn?    my-component) => true
-                              ;
-                              ; The 'fn?' function matches both types (#'my-component, my-component).
-                              ; Therefore, no need to use the 'var?' function as a condition.
-                              (cond (keyword?         content) (dictionary-content content-props)
-                                    (string?          content) (string-content     content-props)
-                                    (number?          content) (number-content     content-props)
-                                  ; (var?             content) [render-fn-content  content-props]
-                                    (fn?              content) [render-fn-content  content-props]
-                                    (utils/component? content) [component-content  content-props]
-                                    (hiccup?          content) (hiccup-content     content-props)
-                                    :return           content)])
+          (multitype-content [{:keys [content] :as content-props}]
+                             ; The symbol must resolve to a var, and the Var object itself (not its value) is returned.
+                             ;
+                             ; (var? #'my-component) => true
+                             ; (fn?  #'my-component) => true
+                             ; (var?   my-component) => false
+                             ; (fn?    my-component) => true
+                             ;
+                             ; The 'fn?' function matches both types (#'my-component, my-component).
+                             ; Therefore, no need to use the 'var?' function as a condition.
+                             (cond (keyword?         content) (dictionary-content content-props)
+                                   (string?          content) (string-content     content-props)
+                                   (number?          content) (number-content     content-props)
+                                 ; (var?             content) [render-fn-content  content-props]
+                                   (fn?              content) [render-fn-content  content-props]
+                                   (utils/component? content) [component-content  content-props]
+                                   (hiccup?          content) (hiccup-content     content-props)
+                                   :return           content))
 
           ; ...
           (compose-content [content-props]
