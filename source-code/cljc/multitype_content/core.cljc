@@ -103,7 +103,7 @@
           (component-content [{:keys [content params]}]
                              (if params (vector/concat-items content params)
                                         (-> content)))
-
+ 
           ; ...
           (multitype-content [{:keys [content] :as content-props}]
                              ; The symbol must resolve to a var, and the Var object itself (not its value) is returned.
@@ -118,9 +118,9 @@
                              (cond (keyword?         content) (dictionary-content content-props)
                                    (string?          content) (string-content     content-props)
                                    (number?          content) (number-content     content-props)
-                                 ; (var?             content) [render-fn-content  content-props]
-                                   (fn?              content) [render-fn-content  content-props]
-                                   (utils/component? content) [component-content  content-props]
+                                 ; (var?             content) (render-fn-content  content-props)
+                                   (fn?              content) (render-fn-content  content-props)
+                                   (utils/component? content) (component-content  content-props)
                                    (hiccup?          content) (hiccup-content     content-props)
                                    :return           content))
 
@@ -130,6 +130,7 @@
                                  composed-content (multitype-content content-props)]
                                 (if-not (-> composed-content empty?)
                                         (-> composed-content))))]
+
 
          ; ...
          (vector/first-result contents compose-content)))
