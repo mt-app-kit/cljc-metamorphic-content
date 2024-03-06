@@ -1,8 +1,8 @@
 
 (ns multitype-content.core
-    (:require [app-dictionary.api        :as app-dictionary]
-              [fruits.hiccup.api         :refer [hiccup?]]
-              [fruits.vector.api         :as vector]
+    (:require [app-dictionary.api      :as app-dictionary]
+              [fruits.hiccup.api       :refer [hiccup?]]
+              [fruits.vector.api       :as vector]
               [multitype-content.utils :as utils]))
 
 ;; ----------------------------------------------------------------------------
