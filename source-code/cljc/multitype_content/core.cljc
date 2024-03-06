@@ -3,6 +3,7 @@
     (:require [app-dictionary.api      :as app-dictionary]
               [fruits.hiccup.api       :refer [hiccup?]]
               [fruits.vector.api       :as vector]
+              [fruits.mixed.api       :as mixed]
               [multitype-content.utils :as utils]))
 
 ;; ----------------------------------------------------------------------------
@@ -103,7 +104,7 @@
           (component-content [{:keys [content params]}]
                              (if params (vector/concat-items content params)
                                         (-> content)))
- 
+
           ; ...
           (multitype-content [{:keys [content] :as content-props}]
                              ; The symbol must resolve to a var, and the Var object itself (not its value) is returned.
@@ -128,9 +129,8 @@
           (compose-content [content-props]
                            (let [content-props    (utils/to-longhand content-props)
                                  composed-content (multitype-content content-props)]
-                                (if-not (-> composed-content empty?)
+                                (if-not (-> composed-content mixed/empty?)
                                         (-> composed-content))))]
-
 
          ; ...
          (vector/first-result contents compose-content)))
