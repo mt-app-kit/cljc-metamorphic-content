@@ -4,6 +4,7 @@
               [fruits.hiccup.api       :refer [hiccup?]]
               [fruits.vector.api       :as vector]
               [fruits.mixed.api       :as mixed]
+              [fruits.map.api :as map]
               [multitype-content.utils :as utils]))
 
 ;; ----------------------------------------------------------------------------
@@ -127,7 +128,7 @@
 
           ; ...
           (compose-content [content-props]
-                           (let [content-props    (utils/to-longhand content-props)
+                           (let [content-props    (map/to-longhand   content-props :content)
                                  composed-content (multitype-content content-props)]
                                 (if-not (-> composed-content mixed/empty?)
                                         (-> composed-content))))]
