@@ -2,9 +2,9 @@
 (ns multitype-content.core
     (:require [app-dictionary.api      :as app-dictionary]
               [fruits.hiccup.api       :refer [hiccup?]]
+              [fruits.map.api          :as map]
+              [fruits.mixed.api        :as mixed]
               [fruits.vector.api       :as vector]
-              [fruits.mixed.api       :as mixed]
-              [fruits.map.api :as map]
               [multitype-content.utils :as utils]))
 
 ;; ----------------------------------------------------------------------------
