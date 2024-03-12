@@ -2,7 +2,7 @@
 (ns multitype-content.core
     (:require [app-dictionary.api      :as app-dictionary]
               [fruits.hiccup.api       :refer [hiccup?]]
-              [fruits.map.api          :as map]
+              [fruits.shorthand.api :as shorthand]
               [fruits.mixed.api        :as mixed]
               [fruits.vector.api       :as vector]
               [multitype-content.utils :as utils]))
@@ -128,8 +128,8 @@
 
           ; ...
           (compose-content [content-props]
-                           (let [content-props    (map/to-longhand   content-props :content)
-                                 composed-content (multitype-content content-props)]
+                           (let [content-props    (shorthand/apply-shorthand-key content-props :content)
+                                 composed-content (multitype-content             content-props)]
                                 (if-not (-> composed-content mixed/empty?)
                                         (-> composed-content))))]
 
