@@ -8,8 +8,8 @@
 ; @tutorial Multi type contents
 ;
 ; @links
-; - Check out the [cljc-app-dictionary](https://github.com/mt-app-kit/cljc-app-dictionary) library.
-; - Check out the [Reagent](https://github.com/reagent-project/reagent) library.
+; - [cljc-app-dictionary](https://github.com/mt-app-kit/cljc-app-dictionary)
+; - [reagent](https://github.com/reagent-project/reagent)
 ;
 ; @---
 ; Supported content types:
@@ -143,6 +143,6 @@
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
- 
+
 ; @redirect (multitype-content.core/*)
 (def compose core/compose)
