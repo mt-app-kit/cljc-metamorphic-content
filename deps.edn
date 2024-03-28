@@ -3,7 +3,7 @@
  :deps  {mt-app-kit/cljc-app-dictionary {:git/url "https://github.com/mt-app-kit/cljc-app-dictionary"
                                          :sha     "0af69f0a51aaaca36e8d4bd638e680fbf94cc15a"}
          bithandshake/cljc-fruits       {:git/url "https://github.com/bithandshake/cljc-fruits"
-                                         :sha     "fa570cb14ff958b9dc3d16649ab14c21d113e655"}
+                                         :sha     "59968ce34d5d8a7b84855cf13e3da48783c621ef"}
          org.clojure/clojure            {:mvn/version "1.10.1"}
          org.clojure/clojurescript      {:mvn/version "1.10.891"}
          reagent/reagent                {:mvn/version "1.2.0"}}}
